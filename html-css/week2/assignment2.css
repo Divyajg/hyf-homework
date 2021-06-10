@@ -1,0 +1,428 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    background-color: white;
+}
+
+h1,
+h3,
+h4 {
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+h1,
+h5 {
+    padding: 10px 0;
+}
+
+h5,
+body {
+    color: grey;
+}
+
+header .header {
+    background-color: rgb(245, 245, 241);
+    text-align: left;
+    padding-left: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(224, 219, 219);
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+nav.stickynav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+img {
+    width: 100%;
+}
+
+.icon1 {
+    color: red;
+}
+
+.icon2 {
+    color: yellowgreen;
+}
+
+.icon3 {
+    color: rgb(233, 152, 219);
+}
+
+.icon4 {
+    color: teal;
+}
+
+.icon5 {
+    color: violet;
+}
+
+.icon6 {
+    color: turquoise
+}
+
+.icon8 {
+    color: tomato;
+}
+
+.icon9 {
+    color: rgb(10, 117, 19);
+}
+
+.icon10 {
+    color: rgb(224, 71, 143);
+}
+
+.icon11 {
+    color: rgb(240, 184, 81);
+}
+
+.icon12 {
+    color: rgb(70, 59, 64);
+}
+
+.footer {
+    background-color: rgb(97, 34, 197);
+    color: white;
+}
+
+h4 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin: 10px;
+    color: white;
+}
+
+.findus,
+.archives,
+.about,
+.navigation {
+    padding: 0 15%;
+}
+
+footer p,
+footer li {
+    text-transform: capitalize;
+}
+
+footer li {
+    list-style-type: none;
+}
+
+.archives li,
+.navigation li {
+    border-bottom: 1px solid rgb(99, 99, 98);
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/*media quieries start here*/
+
+
+/*for mobile screens*/
+
+@media only screen and (max-width: 460px) {
+    body {
+        width: 100%;
+    }
+    nav {
+        padding-left: 20px;
+    }
+    nav ul li {
+        display: block;
+        padding: 12px 12px 12px 0;
+        font-weight: bold;
+        text-align: left;
+    }
+    .main {
+        margin: auto;
+        padding: 20px;
+    }
+    p,
+    .logos {
+        margin: 10px;
+        padding: 0 20px;
+    }
+    .header h5 {
+        color: black;
+    }
+    h3 {
+        margin: 20px 10px 0 10px;
+        padding: 20px 20px 10px 20px;
+    }
+    .logos {
+        font-size: 1.5em;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+    .footer {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+    .footer h4 {
+        margin: 30px 10px 10px 10px;
+    }
+    .findus ul li {
+        padding: 6px;
+    }
+    .about p,
+    .archives ul li,
+    .navigation ul li {
+        padding: 10px;
+    }
+    h4 {
+        text-decoration: underline;
+    }
+    /*.navigation .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .navigation .dropdown-content {
+        display: none;
+        position: absolute;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        background-color: rgb(190, 186, 186);
+        z-index: 1;
+    }*/
+    .archives .dropdown {
+        position: relative;
+        display: block;
+    }
+    .archives .dropdown-content {
+        display: none;
+        position: absolute;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        background-color: rgb(190, 186, 186);
+        z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    nav ul li a:hover,
+    .footer .navigation ul li a:hover {
+        color: grey;
+    }
+    .navigation ul :nth-child(3) {
+        padding-left: 20px;
+    }
+}
+
+
+/*for tablets and big screen mobiles.*/
+
+@media only screen and (min-width: 461px) and (max-width: 960px) {
+    body {
+        width: 100%;
+    }
+    nav ul li {
+        display: inline-block;
+        padding: 12px 12px 12px 0;
+        font-weight: bold;
+        text-align: center;
+    }
+    nav,
+    .main {
+        margin: 0 10%;
+    }
+    p,
+    .logos {
+        margin: 10px;
+    }
+    .header h5 {
+        color: black;
+    }
+    h3 {
+        margin: 20px 10px 0 10px;
+        padding: 20px 20px 10px 0;
+    }
+    .logos {
+        font-size: 2rem;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        grid-gap: 10px;
+        padding: 10px;
+    }
+    .gallery .part1 {
+        font-size: 0.7em;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        text-align: left;
+        padding-right: 20px;
+    }
+    .gallery .part2 {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .logos i {
+        margin: 10px;
+        padding: 20px;
+    }
+    .footer {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-gap: 10px;
+        font-weight: bold;
+    }
+    .about p,
+    .archives ul li,
+    .navigation ul li {
+        padding: 10px;
+    }
+    .findus {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        text-align: left;
+    }
+    .about {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        text-align: left;
+    }
+    .archives {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        text-align: left;
+    }
+    .navigation {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        text-align: left;
+    }
+    .navigation ul :nth-child(3) {
+        padding-left: 20px;
+    }
+}
+
+
+/*for laptops*/
+
+@media only screen and (min-width: 961px) {
+    body {
+        width: 80%;
+        margin: 0 auto;
+        background-color: black;
+    }
+    nav ul li {
+        display: inline-block;
+        padding: 15px 15px 15px 0;
+        font-weight: bold;
+    }
+    .main {
+        margin-top: 30px;
+        margin-bottom: 70px;
+    }
+    nav,
+    .main {
+        margin: 0 10%;
+    }
+    .footer h4 {
+        margin: 50px 10px 10px 10px;
+    }
+    .findus ul li {
+        padding: 10px 10px 10px 10px;
+    }
+    .info,
+    .gallery {
+        display: grid;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        grid-gap: 10px;
+        padding: 10px;
+    }
+    .part1 {
+        font-size: 0.7em;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        text-align: left;
+        padding-right: 20px;
+    }
+    .part2 {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .part1 h3,
+    .part2 h3 {
+        padding: 1.4rem;
+    }
+    .part1 p,
+    .part2 p {
+        padding: 1.4rem;
+        line-height: 1.2rem;
+    }
+    .logos {
+        font-size: 3rem;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+    .logos i {
+        margin: 10px;
+        padding: 20px;
+    }
+    .footer {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-gap: 10px;
+        font-weight: bold;
+    }
+    .about p,
+    .archives ul li,
+    .navigation ul li {
+        padding: 20px 20px 20px 10px;
+    }
+    .findus {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        text-align: left;
+    }
+    .about {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        text-align: left;
+    }
+    .archives {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        text-align: left;
+    }
+    .navigation {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        text-align: left;
+    }
+    .navigation ul :nth-child(3) {
+        padding-left: 30px;
+    }
+    nav ul li a:hover,
+    .footer .navigation ul li a:hover {
+        color: grey;
+    }
+}

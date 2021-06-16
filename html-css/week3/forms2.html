@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="formcss.css" />
+    <title>Form2</title>
+</head>
+
+<body>
+    <div class="form-container page2">
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <img src="shopping-cart.png" alt="Shopping-cart" width="80" height="80" />
+                    </li>
+                    <li><a href="#form">Navigation</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <h2>Sign up to yourcustomtailor.com</h2>
+            <div class="progress-bar">
+                <h4>Progress</h4>
+                <progress value="25" max="100"></progress>
+            </div>
+        </section>
+        <h3>How can we reach you?</h3>
+        <p>
+            We will probably need to stay in touch somehow. Let us know how we can reach you?
+        </p>
+
+        <form action="forms3.html" method="post">
+            <div class="contact">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
+                    required />
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="tel" />
+            </div>
+
+            <div class="pwd">
+                <label for="user-password">Password</label>
+                <input type="password" name="user-pwd" id="user-password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z]).*$.{10,}" title="Must contain at least one uppercase and lowercase letter with minimum of 10 charecters" required />
+                <span class="validity"> </span>
+            </div>
+
+            <div class="re-pwd">
+                <label for="repeat-password">Re-enter Password* </label>
+                <input type="password" name="user-pwd" id="repeat-password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z]).*$.{10,}" title="Must contain at least one uppercase and lowercase letter with minimum of 10 charecters" required />
+                <span class="validity"> </span>
+            </div>
+        </form>
+
+        <div class="newsletter">
+            <h3>I want to sign up for the newsletter</h3>
+            <div class="news">
+                <span>
+            <label for="weekly">Weekly News</label>
+            <input type="radio" id="weekly" name="news" value="weekly" />
+          </span>
+
+                <span>
+            <label for="monthly">Monthly News</label>
+            <input type="radio" id="monthly" name="news" value="monthly" />
+          </span>
+
+                <span>
+            <label for="no-news">Don't send me news</label>
+            <input type="radio" id="no-news" name="news" value="none" />
+          </span>
+            </div>
+        </div>
+
+        <footer>
+            <div>
+                <button class="back-button" type="reset">
+            <a href="forms1.html">Back</a>
+          </button>
+            </div>
+            <div>
+                <button class="next-button" type="submit">
+            <a href="forms3.html">Next step</a>
+          </button>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

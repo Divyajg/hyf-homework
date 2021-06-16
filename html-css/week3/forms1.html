@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="formcss.css" />
+    <title>Divya-form1</title>
+</head>
+
+<body>
+    <div class="form-container page1">
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <img src="shopping-cart.png" alt="Shopping-cart" width="80" height="80" />
+                    </li>
+                    <li><a href="#form">Navigation</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <h2>Sign up to yourcustomtailor.com</h2>
+            <p>
+                We cant't wait to help you improve your life-style and gain the attention from people around you! <br />Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the best offers that match your preferences
+                and style. Every week we will send you a hand-picked selection - we just need to know a details about your first...
+            </p>
+            <div class="progress-bar">
+                <h4>Progress</h4>
+                <progress value="5" max="100"></progress>
+            </div>
+            <p>
+                Nice to meet you. Let's spend a minute to get to know each other? Please enter the following:
+            </p>
+        </section>
+
+        <form action="forms2.html" method="post">
+            <div class="user-name">
+                <label for="firstname">First name</label>
+                <input type="text" id="firstname" name="firstname" minlength="3" required />
+                <label for="lastname">Last name</label>
+                <input type="text" id="lastname" name="lastname" minlength="3" required />
+            </div>
+
+            <div class="country">
+                <label for="country">Country</label>
+                <select name="country" id="country" required>
+                    <option value="">country1</option>
+                    <option value="">country2</option>
+                    <option value="">country3</option>
+                    <option value="">country4</option>
+                    <option value="">country5</option>
+                    <option value="">country6</option>
+                    <option value="">country7</option>
+                </select>
+            </div>
+
+            <div class="address">
+                <label for="address">Street address</label>
+                <input type="text" id="address" name="address" required />
+
+                <label for="post-code">Post Code</label>
+                <input type="text" id="post-code" name="post-code" maxlength="4" pattern="[0-9]{4,4}" required />
+                <span class="validity"> </span>
+            </div>
+
+            <div class="profile-description">
+                <div class="profile-heading">
+                    <h4>Profile Description</h4>
+                    <p>
+                        Please provide a short description of yourself to be displayed on our social community pages.
+                    </p>
+                </div>
+                <textarea id="profile_description" name="profile-description" rows="10" cols="35" maxlength="500">
+          </textarea>
+            </div>
+        </form>
+        <p>
+            Use the same address for billing and shipping? Uncheck below to fill out a separate shipping address.
+        </p>
+        <footer>
+            <div class="shipping">
+                <label for="shipping-address">Shipping address</label>
+                <input type="checkbox" id="shipping-address" name="shipping-address" />
+            </div>
+
+            <div>
+                <button class="next-button" type="submit">
+            <a href="forms2.html">Next step</a>
+          </button>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

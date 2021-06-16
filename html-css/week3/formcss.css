@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 80%;
+    height: auto;
+    margin: 2em auto;
+    background-image: url(https://st2.depositphotos.com/2485347/8807/v/950/depositphotos_88074096-stock-illustration-shopping-pattern-background.jpg);
+}
+
+.form-container {
+    background-color: rgb(241, 229, 241);
+    border: 3px solid rgb(93, 28, 109);
+    font-family: cursive;
+    color: purple;
+    padding: 30px;
+}
+
+a:link,
+button {
+    text-decoration: none;
+    font-family: cursive;
+    color: purple;
+}
+
+a:hover,
+a:visited {
+    color: salmon;
+}
+
+label {
+    text-align: right;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+.form-container>header {
+    width: 100%;
+    padding: 20px 0 40px 0;
+}
+
+.form-container>header>nav>ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-container>header>nav>ul>li {
+    list-style: none;
+}
+
+img {
+    padding: 5px;
+    border: 3px ridge rgb(17, 133, 121);
+    vertical-align: middle;
+}
+
+.form-container>header>nav>ul>li:last-child {
+    border: 3px ridge rgb(17, 133, 121);
+    padding: 15px 70px;
+}
+
+label {
+    font-weight: 800;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+.form-container>section>.progress-bar>progress {
+    width: 100%;
+    height: 5em;
+    transition: width 3s;
+}
+
+.form-container>section>.progress-bar>h4 {
+    padding-top: 20px;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3em 7em 3em 5em;
+}
+
+label {
+    display: inline-block;
+    width: 9em;
+    text-align: right;
+}
+
+span::after {
+    padding-left: 5px;
+}
+
+input:invalid+span::after {
+    content: '✖';
+    color: red;
+}
+
+input:valid+span::after {
+    content: '✓';
+    color: green;
+}
+
+.back-button,
+.next-button {
+    margin: 20px;
+    padding: 20px 40px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2em;
+}
+
+
+/*Page1 specific styles--------------------------------------------------------------*/
+
+form>h3 {
+    margin: 20px 0;
+}
+
+.user-name,
+.profile-description {
+    padding: 20px 0;
+    font-size: 1.2em;
+}
+
+.country,
+.address {
+    padding: 30px 0;
+    font-size: 1.2em;
+}
+
+.profile-heading>p {
+    font-size: 0.6em;
+    padding-top: 10px;
+}
+
+.page>form>.button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+form>.profile-description {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+form>.profile-description>.profile-heading {
+    display: block;
+    width: 20%;
+}
+
+form>.profile-description>textarea {
+    width: 80%;
+}
+
+.page1>form>.button {
+    margin-bottom: 20px;
+    margin-left: 70%;
+    padding: 10px 40px;
+}
+
+
+/* Page2 specific styles*/
+
+.page2>form>div>label {
+    display: inline-block;
+    width: 11em;
+    text-align: right;
+}
+
+.newsletter>div>span>label {
+    width: 11em;
+}
+
+.contact,
+.pwd,
+.re-pwd,
+.newsletter,
+.news {
+    padding: 20px 0;
+}
+
+.email {
+    padding-right: 50px;
+}
+
+.news>span {
+    padding: 0 20px;
+}
+
+
+/* Page3 specific styles*/
+
+.offer-items {
+    display: grid;
+    grid-template-columns: 25% 25%;
+}
+
+.offer-items>div {
+    padding: 20px;
+}
+
+.image-styles {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.image-styles>div {
+    padding: 20px;
+}
+
+.image-styles>div>label {
+    width: auto;
+}
+
+
+/* Page4 specific styles*/
+
+.user-card,
+.card-number,
+.card-name,
+.card-expiry,
+.cvv {
+    padding: 20px 0;
+}
+
+.page4>form>div>label {
+    width: 10em;
+}
+
+
+/* Page5 specific styles*/
+
+p {
+    padding: 20px 0;
+}
+
+.congrats-img {
+    width: 50%;
+    margin: auto;
+    padding: 2em 0;
+}
+
+.page5>footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

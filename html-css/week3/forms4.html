@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="formcss.css" />
+    <title>Form4</title>
+</head>
+
+<body>
+    <div class="form-container page4">
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <img src="shopping-cart.png" alt="Shopping-cart" width="80" height="80" />
+                    </li>
+                    <li><a href="#form">Navigation</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <h2>Sign up to yourcustomtailor.com</h2>
+            <div class="progress-bar">
+                <h4>Progress</h4>
+                <progress value="75" max="100"></progress>
+            </div>
+        </section>
+
+        <h3>Payment information:</h3>
+
+        <form action="forms5.html" method="post">
+
+            <div class="card-name">
+                <label for="cardname">Name on the card:</label>
+                <input type="text" id="cardname" name="nameon the card" required />
+            </div>
+
+            <div class="user-card">
+                <label for="card">Card type:</label>
+                <select name="card-type" id="card" required>
+            <option value="">Visa</option>
+            <option value="">Mastercard</option>
+            <option value="">American Express</option>
+          </select>
+            </div>
+
+            <div class="card-number">
+                <label for="number">Card number:</label>
+                <input type="tel" id="number" name="cardnumber" pattern="[0-9]{16,16}" maxlength="16" required />
+                <span class="validity"></span>
+                <label for="fname">First name</label>
+                <input type="text" name="fname" id="fname" />
+            </div>
+
+            <div class="card-expiry">
+                <label for="month">Expiry month/year:</label>
+                <input type="month" id="month" name="expirymonth" required />
+                <span class="validity"></span>
+            </div>
+
+            <div class="cvv">
+                <label for="cvv">CVV:</label>
+                <input type="tel" id="cvv" name="cvv" maxlength="3" pattern="[0-9]{3,3}" required />
+                <span class="validity"></span>
+            </div>
+
+
+        </form>
+        <footer>
+            <div>
+                <button class="back-button" type="reset">
+            <a href="forms3.html">Back</a>
+          </button>
+            </div>
+            <div>
+                <button class="next-button" type="submit">
+            <a href="forms5.html">Next step</a>
+          </button>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

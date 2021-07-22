@@ -3,11 +3,11 @@ const travelInformation = {
     destinationDistance: 432,
 };
 
-function travel() {
+function calculateTravelTime(travelInformation) {
     let result1 = parseInt(travelInformation.destinationDistance / travelInformation.speed);
     let result2 = (travelInformation.destinationDistance % travelInformation.speed);
     return result1 + " hours and " + result2 + " minutes";
 }
 
-const travelTime = travel(travelInformation);
+const travelTime = calculateTravelTime(travelInformation);
 console.log(travelTime);

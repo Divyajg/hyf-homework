@@ -20,12 +20,12 @@ const seriesDurations = [{
 const avgLifespan = 80;
 const leapyearsInLifespan = parseInt(avgLifespan / 4);
 const normalyearsInLifespan = (avgLifespan - leapyearsInLifespan);
-const daysInLifespan = (leapyearsInLifespan * 366 + normalyearsInLifespan * 365);
-const hoursInLifespan = daysInLifespan * 24;
-const minInLifespan = exactLifespan = hoursInLifespan * 60;
+const lifespanInDays = (leapyearsInLifespan * 366 + normalyearsInLifespan * 365);
+const lifespanInHours = lifespanInDays * 24;
+const lifespanInMinutes = lifespanInHours * 60;
 
 
-function percentage() {
+function percentageOfTimeSpentOnSeries(seriesDurations) {
     let totalTimeSpent = 0;
     for (let i = 0; i < seriesDurations.length; i++) {
 
@@ -33,15 +33,15 @@ function percentage() {
         timeSpent[i] = (seriesDurations[i].days * 24 * 60 + seriesDurations[i].hours * 60 + seriesDurations[i].minutes);
 
         let timeSpentInPercentage = [];
-        timeSpentInPercentage[i] = ((timeSpent[i] / exactLifespan) * 100).toFixed(3);
-
+        timeSpentInPercentage[i] = ((timeSpent[i] / lifespanInMinutes) * 100).toFixed(3);
         totalTimeSpent += timeSpent[i];
+
         console.log(seriesDurations[i].title + " took " + timeSpentInPercentage[i] + "% of my life.")
 
     }
 
-    let resultPercentage = ((totalTimeSpent / exactLifespan) * 100).toFixed(3);
+    let resultPercentage = ((totalTimeSpent / lifespanInMinutes) * 100).toFixed(3);
     return resultPercentage;
 }
-const percentageOfTime = percentage(seriesDurations);
+const percentageOfTime = percentageOfTimeSpentOnSeries(seriesDurations);
 console.log("In total that is " + percentageOfTime + "% of my life.");

@@ -16,7 +16,7 @@ addActivity("Instagram", 60);
 
 console.log(activities);
 
-function showStatus() {
+function showStatus(activities) {
     let totalActivities = activities.length;
     let totalDuration = 0;
     const usageLimit = 150;
@@ -38,7 +38,7 @@ function showStatus() {
             console.log("You are " + remainingMinutes + "mins away to your usage limit!");
         }
 
-        return "You have added " + totalActivities + " activities. They amount to " + totalDuration + " min. of usage";
+        return "You have been engaged with  " + totalActivities + " activities. They amount to " + totalDuration + " min. of usage";
 
     } else {
         return "Add some activities before calling showStatus";
@@ -50,7 +50,7 @@ console.log(showStatus(activities));
 
 //-----------------------------------------------------------------------------------------------
 
-function mostSpentActivity() {
+function mostSpentActivity(activities) {
     let result = 0;
     let mostSpentActivity;
     for (let i = 0; i < activities.length; i++) {
@@ -64,5 +64,5 @@ function mostSpentActivity() {
 
     return mostSpentActivity;
 }
-const mostSpent = mostSpentActivity();
-console.log(mostSpent);
+const mostSpent = mostSpentActivity(activities);
+console.log("You are spending most of your time on " + mostSpent);

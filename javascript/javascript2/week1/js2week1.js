@@ -120,7 +120,7 @@ const button3 = document.createElement('button');
 div2.append(button3);
 button3.innerText = 'click here - for new Spirit Animal';
 button3.setAttribute('onclick', 'newSpiritAnimal()');
-// There is some problem with connecting between the elements of functions below!! Please clear me here!
+
 function newSpiritAnimal() {
     const inputNewSa = document.createElement('input');
     div2.append(inputNewSa);
@@ -131,9 +131,7 @@ function newSpiritAnimal() {
     const button4 = document.createElement('button');
     div2.append(button4);
     button4.innerText = 'Get new Spirit animal.';
-    button4.setAttribute('onclick', 'getYourSpiritAnimal(temp)');
-
-    return temp = inputNewSa.value;
+    button4.setAttribute('onclick', 'getYourSpiritAnimal(newSa.value)');
 }
 
 
@@ -142,10 +140,13 @@ function getYourSpiritAnimal(temp) {
     div2.append(pNewSa);
     pNewSa.setAttribute('id', 'newName');
 
-    if (temp) {
-        document.getElementById("newName").innerText = 'Hey ' + inputName.value + ' Your new Spiritual Animal is " ' + temp + ' "';
+    if (inputName.value) {
+        if (temp) {
+            document.getElementById("newName").innerText = 'Hey ' + inputName.value + ' Your new Spiritual Animal is " ' + temp + ' "';
+        } else {
+            document.getElementById("newName").innerText = 'Hey ' + inputName.value + ' Please provide your choice of animal!';
+        }
     } else {
-        document.getElementById("newName").innerText = 'Hey ' + inputName.value + ' Please provide your choice of animal!';
+        document.getElementById("newName").innerText = 'Please enter your name first.';
     }
-
 }

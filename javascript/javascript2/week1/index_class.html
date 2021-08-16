@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Class excercise 1 -->
+    <script>
+        function myButton() {
+            alert("Welcome to the javaTpoint.com");
+
+            const text = document.querySelector(".button");
+            console.log(text);
+
+            /* class excercise 2*/
+            const element = document.createElement("div");
+
+            /* const newText = document.createTextNode(;*/
+            document.body.appendChild(element);
+
+
+
+            const newElemwnt = document.querySelector("div").innerHTML = "Hello, I am here!!";
+            console.log(newElemwnt);
+
+        }
+
+
+        /*class excercise 3*/
+
+        function func() {
+            let x = document.getElementById("input");
+            x.value = x.value.toUpperCase();
+        }
+
+        function func1() {
+            let x = document.getElementById("input1");
+            x.style.background = "red";
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <!-- Class excercise 1 -->
+    <button class="button" onclick="myButton()">Click here.</button>
+
+    <!-- Class excercise 3-->
+
+    <input type="name" id="input" value="name" onchange="func()">
+
+    <input type="text" id="input1" value="123--" onchange="func1()">
+
+</body>
+
+</html>

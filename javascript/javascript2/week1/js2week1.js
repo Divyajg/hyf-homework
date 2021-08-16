@@ -142,11 +142,11 @@ function getYourSpiritAnimal(temp) {
 
     if (inputName.value) {
         if (temp) {
-            document.getElementById("newName").innerText = 'Hey ' + inputName.value + ' Your new Spiritual Animal is " ' + temp + ' "';
+            pNewSa.innerText = 'Hey ' + inputName.value + ' Your new Spiritual Animal is " ' + temp + ' "';
         } else {
-            document.getElementById("newName").innerText = 'Hey ' + inputName.value + ' Please provide your choice of animal!';
+            pNewSa.innerText = 'Hey ' + inputName.value + ' Please provide your choice of animal!';
         }
     } else {
-        document.getElementById("newName").innerText = 'Please enter your name first.';
+        pNewSa.innerText = 'Please enter your name first.';
     }
 }

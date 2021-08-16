@@ -21,9 +21,9 @@ function renderProducts(products) {
         price.innerHTML = ' Price: ' + products[i].price;
         rating.innerHTML = ' Rating: ' + products[i].rating;
 
-        productList.appendChild(title);
         title.appendChild(price);
         title.appendChild(rating);
+        productList.appendChild(title);
     }
 }
 

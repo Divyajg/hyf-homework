@@ -80,11 +80,7 @@ input.addEventListener('input', search);
 //-----filters products through max price
 
 function searchByPrice() {
-    const filteredproducts = products.filter((product) => {
-        if (priceInput.value <= product.price) {
-            return product;
-        }
-    })
+    const filteredproducts = products.filter((product) => priceInput.value <= product.price)
     displayProductsByPrice(filteredproducts);
 }
 

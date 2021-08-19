@@ -18,59 +18,38 @@ const movies = [{ "title": "'71", "year": 2014, "rating": 7.2, "votes": 41702, "
 
 //task1
 
-const shortestMovieTitles = movies.filter((movie) => {
-    return movie.title.length < 2;
-})
+const shortestMovieTitles = movies.filter((movie) => movie.title.length < 2)
 console.log(shortestMovieTitles);
 
 //task2
 
-const longestMovieTitles = movies.filter((movie) => {
-    return movie.title.length > 70;
-})
+const longestMovieTitles = movies.filter((movie) => movie.title.length > 70)
 console.log(longestMovieTitles);
 
 //task3
 
-const moviesInATime = movies.filter((movie) => {
-    return movie.year >= 1980 && movie.year <= 1989;
-})
+const moviesInATime = movies.filter((movie) => movie.year >= 1980 && movie.year <= 1989)
 console.log('Total movies released in between 1980 and 1989: ' + moviesInATime.length);
 
 //task4
 
-let taggedMovies = movies.map((movie) => {
-    if (movie.rating >= 7) {
-        movie.tag = 'Good';
-    } else if (movie.rating >= 4 && movie.rating < 7) {
-        movie.tag = 'Average';
-    } else if (movie.rating < 4) {
-        movie.tag = 'Bad';
-    }
-    return movie;
+let taggedMovies = movies.forEach((movie) => {
+    let movie_tag = (movie.rating >= 7) ? "Good" : (movie.rating < 4) ? "Bad" : "Average";
+    movie["tag"] = movie_tag;
 })
+
 console.log(taggedMovies);
 
 //task 5
 
-const ratedMovies = movies.filter(movie => movie.rating > 6).map(movie => movie.rating);
-console.log(ratedMovies);
+movies.filter(movie => movie.rating > 6).map(movie => movie.rating);
+console.log(movies);
 
 //task 6
 
-const count = movies.filter(movie => {
-    if (movie.title.toLowerCase().includes('alien')) {
-        return movie;
-    }
-    if (movie.title.toLowerCase().includes('benjamin')) {
-        return movie;
-    }
-    if (movie.title.toLowerCase().includes('surfer')) {
-        return movie;
-    }
-}).length;
-
-console.log(count);
+const moviesTitleWithKeywords = movies.filter((movie) =>
+    (movie.title.toLowerCase().includes("surfer") || movie.title.toLowerCase().includes("alien") || movie.title.toLowerCase().includes("benjamin")));
+console.log(moviesTitleWithKeywords.length);
 
 //task 7
 
@@ -90,46 +69,23 @@ console.log(moviesWithDuplicateTitle);
 
 //task 8
 
-const totalRating = movies.reduce((sum, movie) => {
-    return sum + movie.rating;
-}, 0)
+const totalRating = movies.reduce((sum, movie) => sum + movie.rating, 0)
 let averageRating = (totalRating / movies.length).toFixed(2);
 console.log('Average rating of the movies is  ' + averageRating);
 
 //task 9
 
 //Good movies
-const goodMovies = movies.filter(movie => {
-    if (movie.tag === 'Good') {
-        return movie;
-    }
-})
-const goodMoviesCount = goodMovies.reduce((count) => {
-    return count + 1;
-}, 0)
-
+const goodMovies = movies.filter(movie => (movie.tag === 'Good'))
+const goodMoviesCount = goodMovies.reduce((moviesTitleWithKeywords) => moviesTitleWithKeywords + 1, 0)
 console.log('Good movies: ' + goodMoviesCount);
 
 //Average movies
-const averageMovies = movies.filter(movie => {
-    if (movie.tag === 'Average') {
-        return movie;
-    }
-})
-const averageMoviesCount = averageMovies.reduce((count) => {
-    return count + 1;
-}, 0)
-
+const averageMovies = movies.filter(movie => (movie.tag === 'Average'))
+const averageMoviesCount = averageMovies.reduce((moviesTitleWithKeywords) => moviesTitleWithKeywords + 1, 0)
 console.log('Average movies: ' + averageMoviesCount);
 
 //Bad movies
-const badMovies = movies.filter(movie => {
-    if (movie.tag === 'Bad') {
-        return movie;
-    }
-})
-const badMoviesCount = badMovies.reduce((count) => {
-    return count + 1;
-}, 0)
-
+const badMovies = movies.filter(movie => (movie.tag === 'Bad'))
+const badMoviesCount = badMovies.reduce((moviesTitleWithKeywords) => moviesTitleWithKeywords + 1, 0)
 console.log('Bad movies: ' + badMoviesCount);

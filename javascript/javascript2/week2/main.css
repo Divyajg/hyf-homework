@@ -1,0 +1,64 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    width: auto;
+    height: auto;
+    margin: 2em auto;
+    padding: 2em;
+    text-align: center;
+    background-color: rgb(182, 182, 179);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2 {
+    margin: 0;
+}
+
+header,
+footer {
+    padding: 1em;
+    background-color: rgb(160, 160, 158);
+    border: 1px ridge rgb(138, 17, 17);
+}
+
+header>nav>ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text-color {
+    color: rgb(184, 120, 25);
+}
+
+header>nav>ul>li {
+    list-style: none;
+}
+
+header>nav>ul>li>a {
+    text-decoration: none;
+    color: rgb(66, 65, 65);
+}
+
+footer>button>a {
+    text-decoration: none;
+}
+
+.heading {
+    font-size: 2em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+}
+
+ul li {
+    padding: 0.7em;
+}

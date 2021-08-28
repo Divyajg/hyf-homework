@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: cursive;
+            text-align: center;
+        }
+        
+        #gameName {
+            border: 2px solid rgb(233, 73, 134);
+            padding: 20px;
+            color: rgb(224, 32, 144);
+            background-color: cornsilk;
+        }
+        
+        canvas {
+            width: 100%;
+            position: absolute;
+        }
+        
+        #newGame,
+        #startGame {
+            background-color: rgb(110, 228, 43);
+        }
+        
+        .game {
+            display: flex;
+            padding: 5%;
+        }
+        
+        .item {
+            position: relative;
+            width: 45%;
+            height: 200px;
+            margin: 10px;
+            border: 5px solid rgb(110, 228, 43);
+            border-radius: 14px;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.13/dist/index.min.js"></script>
+</head>
+
+<body>
+    <button id="button1">Click</button>
+    <button id="logLocation">log Location</button>
+    <div>
+
+        <h2 id="gameName">Fastest Presser</h2>
+        <input type="number" id="gameTime" placeholder="time" min="1" max="60" />
+        <button id="startGame">Start Game</button>
+        <button id="newGame">New Game</button>
+        <p id="gameOver"></p>
+        <h3 id="winner"></h3>
+
+        <div class="game">
+            <div class="item">
+                <canvas id="sCanvas"></canvas>
+                <h3>S count</h3>
+                <p id="sCount"></p>
+            </div>
+            <div class="item">
+                <canvas id="lCanvas"></canvas>
+                <h3>L count</h3>
+                <p id="lCount"></p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js2-week3.js"></script>
+
+</body>
+
+</html>

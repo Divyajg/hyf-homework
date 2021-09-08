@@ -37,16 +37,12 @@ const bluePromise = new Promise((resolve) => {
     }, 3000);
 });
 
-// translate all at once:
-
-
 //translate one by one:
 const translateOneByOne = () => {
     redPromise.then((res) => { res() });
     greenPromise.then((res) => { res() });
     bluePromise.then((res) => { res() });
 };
-
 translateOneByOne();
 
 //translate all at once:
@@ -55,4 +51,4 @@ const translateAllAtOnce = () => {
         values.forEach((fun) => fun());
     });
 };
-//translateAllAtOnce();
+translateAllAtOnce();

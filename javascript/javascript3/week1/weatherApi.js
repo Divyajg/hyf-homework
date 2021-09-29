@@ -1,0 +1,94 @@
+//Weather API------------------------------------------------------------------
+//get weather for your choice of city------------------------------------------
+
+const url = c20bdbd9cdf94e9fb3889776572cba5a;
+
+function getWeatherHere() {
+    const city = document.getElementById('cityInput').value;
+    if (city) {
+        const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + url;
+
+        document.getElementById('city').innerHTML = "City:  " + city;
+        fetch(weatherUrl)
+            .then(response => response.json())
+            .then(weather => {
+                document.getElementById('temp').innerHTML = "Temperatur(F):  " + weather.main.temp;
+                document.getElementById('icon').src = "http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png";
+                document.getElementById('wind').innerHTML = "Wind Speed(Kmps):  " + weather.wind.speed;
+                document.getElementById('cloud').innerHTML = "Clouds:  " + weather.clouds.all;
+                document.getElementById('sunrise').innerHTML = "Sunrise:  " + weather.sys.sunrise;
+                document.getElementById('sunset').innerHTML = "Sunset:  " + weather.sys.sunset;
+                //saving data to localstorage:---------------------------------------------
+                localStorage.setItem('city', city);
+                let retriveData = localStorage.getItem('city');
+                console.log('retrived data:  ', retriveData);
+                //showing map-------------------------------
+                let lat = weather.coord.lat;
+                let lng = weather.coord.lon;
+                let map;
+
+                function initMap(lat, lng) {
+                    const coords = new google.maps.LatLng(lat, lng);
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 4,
+                        center: coords,
+                    });
+                }
+                initMap(lat, lng);
+                document.getElementById('map').innerHTML = `<div><iframe src="https://maps.google.com/maps?q=${weather.name}&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>`;
+
+            });
+    } else {
+        document.getElementById('note').innerHTML = "Please provide the city!"
+    }
+}
+document.querySelector('#weatherButton').addEventListener('click', getWeatherHere);
+
+//How can i do this? 'Now when loading the page and there is a city in the localstorage, use that to get the current weather'.
+
+//get weather for your current location---------------------------------------------
+
+let options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+
+function success(pos) {
+    let crd = pos.coords;
+    const cLocation = document.getElementById('displayCurrentLoc');
+    cLocation.innerHTML = "Latitude= " + crd.latitude + "  Longitude= " + crd.longitude;
+    const myurl = 'https://api.openweathermap.org/data/2.5/weather?lat=' + crd.latitude + '&lon=' + crd.longitude + '&appid=' + url;
+    console.log(myurl);
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + crd.latitude + '&lon=' + crd.longitude + '&appid=' + url)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('currentTemp').innerHTML = "Temperatur(F):  " + data.main.temp;
+            document.getElementById('currentWeather').innerHTML = "Weather:  " + data.weather[0].description;
+            document.getElementById('icon2').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+
+            let lat = data.coord.lat.toFixed(4);
+            let lng = data.coord.lon.toFixed(4);
+            let mapCurrent;
+            const coords = new google.maps.LatLng(lat, lng);
+
+            // Initialize and add the map
+            function initMap(coords) {
+                mapCurrent = new google.maps.Map(document.getElementById("mapC"), {
+                    zoom: 16,
+                    center: coords,
+                });
+            }
+            initMap(coords);
+            document.getElementById('mapC').innerHTML = `<div><iframe src="https://maps.google.com/maps?q=${coords}&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>`;
+        })
+}
+
+function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+function currentLocation() { navigator.geolocation.getCurrentPosition(success, error, options); }
+
+document.getElementById('currentLoc').addEventListener('click', currentLocation);

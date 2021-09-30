@@ -37,7 +37,8 @@ function getWeatherHere() {
                 initMap(lat, lng);
                 document.getElementById('map').innerHTML = `<div><iframe src="https://maps.google.com/maps?q=${weather.name}&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>`;
 
-            });
+            })
+            .catch((error) => console.log(error));
     } else {
         document.getElementById('note').innerHTML = "Please provide the city!"
     }
@@ -74,15 +75,17 @@ function success(pos) {
             const coords = new google.maps.LatLng(lat, lng);
 
             // Initialize and add the map
-            function initMap(coords) {
-                mapCurrent = new google.maps.Map(document.getElementById("mapC"), {
-                    zoom: 16,
-                    center: coords,
-                });
-            }
+
             initMap(coords);
             document.getElementById('mapC').innerHTML = `<div><iframe src="https://maps.google.com/maps?q=${coords}&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>`;
         })
+}
+
+function initMap(coords) {
+    mapCurrent = new google.maps.Map(document.getElementById("mapC"), {
+        zoom: 16,
+        center: coords,
+    });
 }
 
 function error(err) {

@@ -23,7 +23,7 @@ const c1 = new Circle(90, 80, 50, 0, 2 * Math.PI, "#0008e3");
 c1.draw();
 
 
-function fillingColor() {
+function getRandomColor() {
     return 'rgb(' + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ')';
 }
 
@@ -34,7 +34,7 @@ function createCircle() {
     const circleWidth = Math.floor(Math.random() * window.screen.width);
     const circleHeight = Math.floor(Math.random() * window.screen.height);
     const circleRadius = Math.floor(Math.random() * 100);
-    const circleColor = fillingColor();
+    const circleColor = getRandomColor();
     const randomCircle = new Circle(circleWidth, circleHeight, circleRadius, 0, 2 * Math.PI, circleColor);
     randomCircle.draw();
 }

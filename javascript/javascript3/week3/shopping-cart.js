@@ -12,7 +12,7 @@ class Product {
             .then((data) => {
                 const currencies = data.conversion_rates;
                 const convertCurrency = this.price * currencies[currency];
-                console.log(convertCurrency + currency);
+                return (convertCurrency + currency);
             })
     }
 
@@ -55,7 +55,7 @@ class ShoppingCart {
             item.innerHTML = `Product: ${product.name}`;
             const price = document.createElement("span");
             getProducts.appendChild(price);
-            price.innerHTML = `Price: ${product.price}`;
+            price.innerHTML = `Price: ${Product.convertToCurrency(currency)}`;
 
             const total = document.getElementById("total");
             total.innerHTML = `Total Price: ${this.getTotal()}`;

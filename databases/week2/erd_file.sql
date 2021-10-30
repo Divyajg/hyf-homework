@@ -1,0 +1,43 @@
+--Part-4
+-- Schema and ERD:
+
+CREATE TABLE buyer(
+id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+name VARCHAR(255) NOT NULL,
+address VARCHAR(255) NOT NULL,
+PRIMARY KEY (id));
+
+CREATE TABLE seller(
+id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+name VARCHAR(255) NOT NULL,
+address VARCHAR(255) NOT NULL,
+PRIMARY KEY (id));
+
+CREATE TABLE payment(
+id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+method ENUM ("Credit-card", "Debit-card", "COD"),
+PRIMARY KEY (id));
+
+CREATE TABLE product(
+id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+name VARCHAR(255) NOT NULL,
+amount int(10),
+PRIMARY KEY (id), 
+seller_id int(10) UNSIGNED NOT NULL,
+CONSTRAINT FK_seller
+FOREIGN KEY (seller_id) REFERENCES seller(id));
+
+CREATE TABLE purchase(
+id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+date DATETIME NOT NULL,
+price int(10),
+PRIMARY KEY (id),
+buyer_id int(10) UNSIGNED NOT NULL,
+product_id int(10) UNSIGNED NOT NULL,
+payment_id int(10) UNSIGNED NOT NULL,
+CONSTRAINT FK_buyer
+FOREIGN KEY (buyer_id) REFERENCES buyer(id),
+CONSTRAINT FK_product
+FOREIGN KEY (product_id) REFERENCES product(id),
+CONSTRAINT FK_payment
+FOREIGN KEY (payment_id) REFERENCES payment(id));

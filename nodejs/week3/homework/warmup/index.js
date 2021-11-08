@@ -1,67 +1,68 @@
 const express = require("express");
 const app = express();
 
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 //Get requests:
 app.get("/", (req, res) => res.send("nodejs week3 warmup homework: try /calculator for calculator exercise!"));
 
 app.get("/calculator", (req, res) => res.send("try: /add || /subtract || /multiply || /divide and parameters"));
 
+addParams = (values) => values.reduce((total, value) => parseInt(total) + parseInt(value));
+
+subParams = (values) => values.reduce((total, value) => parseInt(total) - parseInt(value));
+
+multiplyParams = (values) => values.reduce((total, value) => parseInt(total) * parseInt(value));
+
+divideParams = (values) => values.reduce((total, value) => parseInt(total) / parseInt(value));
+
 app.get("/calculator/add", (req, res) => {
     const query = req.query;
     const values = Object.values(query);
-    console.log(values);
-    let addResult = values.reduce((total, value) => parseInt(total) + parseInt(value));
-    console.log(addResult);
-    res.send(`Result of addition = ${addResult}`);
+    res.send(`Result of addition = ${addParams(values)}`);
 });
 
 app.get("/calculator/subtract", (req, res) => {
-    const { firstParam, secondParam } = req.query;
-    const subResult = parseInt(firstParam) - parseInt(secondParam);
-    console.log(subResult);
-    res.send(`Result of subtraction = ${subResult}`);
+    const query = req.query;
+    const values = Object.values(query);
+    res.send(`Result of subtraction = ${subParams(values)}`);
 });
 
 app.get("/calculator/multiply", (req, res) => {
-    const { params } = req.query;
-    const values = Object.values(params);
-    console.log(values);
-    let multiplyResult = values.reduce((total, value) => parseInt(total) * parseInt(value));
-    console.log(multiplyResult);
-    res.send(`Result of multiplication = ${multiplyResult}`);
+    const query = req.query;
+    const values = Object.values(query);
+    res.send(`Result of multiplication = ${multiplyParams(values)}`);
 });
 
 app.get("/calculator/divide", (req, res) => {
-    const { firstParam, secondParam } = req.query;
-    console.log(firstParam);
-    console.log(secondParam);
-    const divideResult = (parseInt(firstParam) / parseInt(secondParam)).toFixed(2);
-    console.log(divideResult);
-    res.send(`Result of division = ${divideResult}`);
+    const query = req.query;
+    const values = Object.values(query);
+    res.send(`Result of division = ${divideParams(values)}`);
 });
 
 //Post requests:
+app.post("/calculator/add", (req, res) => {
+    const query = req.body;
+    const values = Object.values(query);
+    res.send(`Result of addition = ${addParams(values)}`);
+});
+
+app.post("/calculator/subtract", (req, res) => {
+    const query = req.body;
+    const values = Object.values(query);
+    res.send(`Result of subtraction = ${subParams(values)}`);
+});
+
 app.post("/calculator/multiply", (req, res) => {
     const query = req.body;
-    console.log(query);
     const values = Object.values(query);
-    console.log(values);
-    let multiplyResult = values.reduce((total, value) => parseInt(total) * parseInt(value));
-    console.log(multiplyResult);
-    res.send(`Result of multiplication = ${multiplyResult}`);
+    res.send(`Result of multiplication = ${multiplyParams(values)}`);
 });
 
 app.post("/calculator/divide", (req, res) => {
     const query = req.body;
-    console.log(query);
     const values = Object.values(query);
-    console.log(values);
-    let divideResult = values.reduce((total, value) => parseInt(total) / parseInt(value));
-    console.log(divideResult);
-    res.send(`Result of division = ${divideResult}`);
+    res.send(`Result of division = ${divideParams(values)}`);
 });
 
 app.listen(3000, () => console.log(`Calculator:listening on port 3000`));

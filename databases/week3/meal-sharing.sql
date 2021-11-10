@@ -91,11 +91,11 @@ INSERT INTO reservation (
     contact_name,
     contact_email
 ) VALUES (
-    4,
     2,
-    31256528,
-    "Betty Cooper",
-    "betty@cooper.com"
+    2,
+    41256528,
+    "Shaun Murphy",
+    "shaun@murphy.com"
 );
 
 --Get a reservation with any id, fx 1
@@ -105,7 +105,7 @@ WHERE id = 4;
 
 -- Update a reservation with any id, fx 1. Update any attribute fx the title or multiple attributes
 UPDATE reservation
-SET number_of_guests = 2
+SET number_of_guests = 1
 WHERE id = 5;
 
 -- Delete a reservation with any id, fx 1
@@ -154,19 +154,11 @@ WHERE price < 400;
 
 -- Get meals that still has available reservations
 
-SELECT
-  meal.id as Meal_id,
-  meal.title as Meal_Title,
-  meal.description as Meal_explained,
-  meal.max_reservations as Maximum_reservations,
-  SUM(reservation.number_of_guests) as Reserved_reservations,
-  (meal.max_reservations - reservation.number_of_guests) AS Available_reservations
-FROM meal, reservation
-WHERE reservation.meal_id = meal.id
-GROUP BY
-  meal.id
-ORDER BY
-  meal.id ASC;
+SELECT meal.*, sum(reservation.number_of_guests) AS Total_reserved_yet
+FROM meal
+JOIN reservation ON meal.id = reservation.meal_id
+GROUP BY reservation.meal_id
+HAVING meal.max_reservations > SUM(reservation.number_of_guests);
 
 -- Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
 SELECT * 

@@ -6,12 +6,10 @@ const meals = require("../data/meals.json");
 
 router.get("/", async(request, response) => {
     try {
-        let { maxPrice, queryTitle, createdAfter, limit } = request.query;
+        const { maxPrice, title, createdAfter, limit } = request.query;
 
         //maxPrice
         if (maxPrice) {
-            console.log(maxPrice);
-
             if (parseInt(maxPrice) > 0) {
                 const mealsWithMaxprice = meals.filter(meal => meal.price < parseInt(maxPrice));
                 response.json(mealsWithMaxprice);
@@ -21,11 +19,9 @@ router.get("/", async(request, response) => {
             }
 
             //searchTitle
-        } else if (queryTitle) {
-            console.log(queryTitle);
-            console.log(encodeURI(queryTitle));
-            if (encodeURI(queryTitle)) {
-                const mealsWithTitle = meals.filter(meal => encodeURI(meal.title).toLowerCase().includes(encodeURI(queryTitle)));
+        } else if (title) {
+            if (encodeURI(title)) {
+                const mealsWithTitle = meals.filter(meal => encodeURI(meal.title).toLowerCase().includes(encodeURI(title).toLowerCase()));
                 response.json(mealsWithTitle);
             } else {
                 response.statusCode = 400;
@@ -34,7 +30,6 @@ router.get("/", async(request, response) => {
 
             //createdAfter
         } else if (createdAfter) {
-            console.log(createdAfter);
             if (Date.parse(createdAfter)) {
                 const mealsCreatedAfter = meals.filter(meal => Date.parse(meal.createdAt) > Date.parse(createdAfter));
                 response.json(mealsCreatedAfter);
@@ -45,7 +40,6 @@ router.get("/", async(request, response) => {
 
             //limit
         } else if (limit) {
-            console.log(limit);
             if (parseInt(limit) <= meals.length) {
                 const expectedNumberOfMeals = meals.slice(0, parseInt(limit));
                 response.json(expectedNumberOfMeals);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './App.css'
 //Given array.
 const todos = [
   {
@@ -21,7 +22,7 @@ const TodoTitle = (props) => {
 //child component-2
 const TodoList = (props) => {
   return (
-    <ul>
+    <ol>
       {props.todoItems.map((todo) => {
         return (
           <RenderItems
@@ -32,7 +33,7 @@ const TodoList = (props) => {
           />
         );
       })}
-    </ul>
+    </ol>
   );
 };
 //child component-3
@@ -40,13 +41,13 @@ const RenderItems = (props) => {
   const [check, setCheck] = useState(false);
   const isDone = () => setCheck(!check);
   return (
-    <div>
+    <div className="listItems">
       <li
         key={props.id}
         style={{ textDecorationLine: check ? "line-through" : "none" }}>
         {props.todoExplained} 
         <input type="checkbox" onClick={isDone} />
-        <button onClick={()=>props.delete(props.todoId)} > Delete </button>
+        <button className="button_delete" onClick={()=>props.delete(props.todoId)} > Delete </button>
       </li>
     </div>
   );
@@ -63,7 +64,7 @@ const Timer = () => {
   return (
     <div>
       <p>
-        You have used {time} seconds on this website
+        You have used <span className="time">{time}</span> seconds on this website
       </p>
     </div>
   );
@@ -77,12 +78,11 @@ function App() {
   const deleteTodo = (id) => setTodos(useTodos.filter((todo)=>todo.id!==id));
   return (
     <div className="App">
-      <div>
         <TodoTitle title="Todo List" />
         <Timer />
-        <button onClick={buttonAddTodo}> Add Todo </button>
+        <button className="button_add" onClick={buttonAddTodo}> add todo </button>
+        {(useTodos.length===0 && <h3>No items</h3>)}
         <TodoList todoItems={useTodos} delete={deleteTodo} />
-      </div>
     </div>
   );
 }

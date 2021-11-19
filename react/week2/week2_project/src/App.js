@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { nanoid } from 'nanoid';
 import './App.css'
 //Given array.
 const todos = [
@@ -25,7 +26,7 @@ const TodoList = (props) => {
     <ol>
       {props.todoItems.map((todo) => {
         return (
-          <RenderItems
+          <RenderItem
             key={todo.id}
             todoId={todo.id}
             todoExplained={todo.description}
@@ -37,7 +38,7 @@ const TodoList = (props) => {
   );
 };
 //child component-3
-const RenderItems = (props) => {
+const RenderItem = (props) => {
   const [check, setCheck] = useState(false);
   const isDone = () => setCheck(!check);
   return (
@@ -72,7 +73,7 @@ const Timer = () => {
 //Parent function.
 function App() {
   const [useTodos, setTodos] = useState(todos);
-  const nextTodo = { id: useTodos.length + 1, description: "Random text" };
+  const nextTodo = { id: nanoid(), description: "Random text" };
   let newTodos = useTodos.concat(nextTodo);
   const buttonAddTodo = () => setTodos(newTodos);
   const deleteTodo = (id) => setTodos(useTodos.filter((todo)=>todo.id!==id));

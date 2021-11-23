@@ -1,0 +1,35 @@
+* {
+    background-image: url(https://th.bing.com/th/id/R.b94a8a6f6ee4031588c9d01786395e40?rik=8yOIVLqlJSxAGA&pid=ImgRaw&r=0);
+    width: auto;
+    margin: 1em;
+}
+
+body {
+    width: 90% auto;
+    margin: 1em;
+    text-align: center;
+}
+
+#user {
+    padding: 1em;
+    color: rgb(78, 22, 131);
+}
+
+header h1 {
+    text-shadow: 1px 2px 2px rgb(15, 15, 15);
+    color: rgb(233, 68, 68);
+}
+
+button,
+#product {
+    color: rgb(19, 116, 83);
+}
+
+#renderProducts {
+    color: rgb(168, 76, 14);
+    padding: 2px;
+}
+
+#total {
+    color: rgb(19, 116, 83);
+}

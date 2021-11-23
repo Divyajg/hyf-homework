@@ -4,18 +4,21 @@ class Product {
         this.price = price;
     }
 
-    convertToCurrency(currency) {
+    convertToCurrency = (currency) => {
         fetch(
                 "https://v6.exchangerate-api.com/v6/2d116b855d76dabb3c7dcbe8/latest/DKK"
             )
             .then((response) => response.json())
             .then((data) => {
                 const currencies = data.conversion_rates;
-                const convertCurrency = this.price * currencies[currency];
-                return (convertCurrency + currency);
+                const convertCurrency = this.price * currencies[currency].toFixed(2);
+                const product = this.name;
+                console.log(`Price of ${product} is ${convertCurrency} ${currency}`);
             })
-    }
-
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    };
 }
 
 class ShoppingCart {
@@ -44,7 +47,7 @@ class ShoppingCart {
     }
 
     renderProducts() {
-        const getProducts = document.querySelector("#getProducts");
+        const getProducts = document.querySelector("#renderProducts");
         const h1 = document.createElement("h1");
         getProducts.appendChild(h1);
         h1.innerHTML = "Products:";
@@ -52,11 +55,11 @@ class ShoppingCart {
 
             const item = document.createElement("p");
             getProducts.appendChild(item);
+            item.setAttribute("id", "product")
             item.innerHTML = `Product: ${product.name}`;
             const price = document.createElement("span");
             getProducts.appendChild(price);
-            price.innerHTML = `Price: ${Product.convertToCurrency(currency)}`;
-
+            price.innerHTML = `Price: ${product.price} DKK`;
             const total = document.getElementById("total");
             total.innerHTML = `Total Price: ${this.getTotal()}`;
 
@@ -82,25 +85,33 @@ class ShoppingCart {
 
 const shoppingCart = new ShoppingCart();
 
-const flatscreen = new Product("flat-screen", 5000);
+const flatscreen = new Product("flatscreen", 5000);
 shoppingCart.addProduct(flatscreen);
-flatscreen.convertToCurrency("EUR");
+flatscreen.convertToCurrency("EUR")
+
+const kenwood = new Product("Kenwood", 5000);
+shoppingCart.addProduct(kenwood);
+kenwood.convertToCurrency("GBP")
 
 const jabra = new Product("jabra", 700);
 shoppingCart.addProduct(jabra);
-jabra.convertToCurrency("EUR");
+jabra.convertToCurrency("INR")
 
 const ipod = new Product("ipod", 1300);
 shoppingCart.addProduct(ipod);
-ipod.convertToCurrency("EUR");
+ipod.convertToCurrency("CZK")
 
 const vivoMini = new Product("vivoMini", 2100);
 shoppingCart.addProduct(vivoMini);
-vivoMini.convertToCurrency("EUR");
+vivoMini.convertToCurrency("EUR")
 
 const garminBørn = new Product("garminBørn", 400);
 shoppingCart.addProduct(garminBørn);
-garminBørn.convertToCurrency("EUR");
+garminBørn.convertToCurrency("INR")
+
+const plant = new Product("plant", 50);
+shoppingCart.addProduct(plant);
+plant.convertToCurrency("CZK")
 
 shoppingCart.removeProduct(ipod);
 
@@ -115,6 +126,3 @@ getCartItems.addEventListener("click", () => {
     shoppingCart.renderProducts();
     getCartItems.disabled = true;
 });
-
-const plant = new Product("plant", 50);
-plant.convertToCurrency("EUR");

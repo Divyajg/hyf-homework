@@ -6,26 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shopping-Cart</title>
+    <link rel="stylesheet" href="shopping-cart.css">
 </head>
 
 <body>
-    <h1>e-Shopping-Cart</h1>
+    <header>
+        <h1>e-Shopping-Cart</h1>
+    </header>
     <hr />
     <div>
         <main>
-            <button id="userButton">User Info:</button> <br>
-            <input type="text" value="" />
-            <button>Search</button> <br>
-            <button id="shoppingCart">ShoppingCart</button> <br>
-            <button id="addProduct">Add Product</button> <br>
-            <button id="removeProduct">Remove Product</button> <br>
+            <section>
+                <button id="userButton">User Info😊</button>
+            </section>
+            <section>
+                <input type="text" value="" />
+                <button>Search</button> <br>
+
+            </section>
+            <section>
+                <button id="shoppingCart">ShoppingCart</button>
+                <button id="addProduct">Add Product</button>
+                <button id="removeProduct">Remove Product</button>
+            </section>
 
             <section id="user"></section>
 
-            <section id="getProducts"></section>
+            <section id="renderProducts"></section>
+
             <p id="total"></p>
-
-
         </main>
     </div>
     <script src="shopping-cart.js"></script>

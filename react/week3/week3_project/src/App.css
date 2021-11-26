@@ -1,0 +1,51 @@
+.App {
+    text-align: center;
+    color: rgb(102, 101, 101);
+    font-style: oblique;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 0.2em ridge rgb(151, 61, 61);
+    margin: 3em;
+    background-image: url(https://th.bing.com/th/id/R.120a58b4081255f080726ee21431eacb?rik=z7JWxwVrYrSZRg&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-10%2fGrey-Abstract-HD-Background-Wallpaper-28660.jpg&ehk=wBMXBkw%2fsZH6WzA%2b4r%2bpcqUy5vEH4eFLyoQlZYR%2b3D4%3d&risl=&pid=ImgRaw&r=0);
+}
+
+.title {
+    color: green;
+}
+
+.listItems {
+    color: brown;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid black;
+}
+
+.time {
+    color: red;
+}
+
+.addMargin {
+    margin: 5px;
+}
+
+.button_add {
+    border-radius: 5px;
+    color: rgb(23, 139, 13);
+    margin-top: 5px;
+    padding: 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.button_delete,
+.button_edit {
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 1.5em;
+    color: red;
+}
+
+ul {
+    list-style: none;
+    padding-right: 1em;
+    margin-right: 1em;
+}

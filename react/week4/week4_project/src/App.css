@@ -1,0 +1,32 @@
+* {
+    background-color: #30333b;
+    color: #45bfe0;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-header {
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+.listStyle {
+    color: rgb(247, 240, 231);
+    text-align: center;
+    padding: 1em 1em 1em 0;
+    list-style-type: none;
+}
+
+.inputText {
+    color: rgb(223, 86, 45);
+}
+
+.centerText {
+    text-align: center;
+}

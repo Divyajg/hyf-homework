@@ -1,5 +1,7 @@
 Potato
 Carrot
-Pumpkin
+Tomato
 Cucumber
 Onion
+chilli
+Garlic

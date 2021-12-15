@@ -5,3 +5,6 @@ Cucumber
 Onion
 chilli
 Garlic
+Apple
+Cucumber
+Onion

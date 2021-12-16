@@ -5,3 +5,6 @@ Cabbage
 Potatos
 Ginger
 Garlic
+Egg Plant
+Cabbage
+Potatos

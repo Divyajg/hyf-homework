@@ -1,5 +1,10 @@
 Potato
 Carrot
+Tomato
+Cucumber
+Onion
+chilli
+Garlic
 Apple
 Cucumber
 Onion
